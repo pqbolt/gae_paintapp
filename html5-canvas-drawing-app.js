@@ -27,7 +27,7 @@ var drawingApp = (function () {
 		colorGreen = "#659b41",
 		colorYellow = "#ffcf33",
 		colorBrown = "#986928",
-		
+		outlineImage = new Image(),
 		crayonImage = new Image(),
 		markerImage = new Image(),
 		eraserImage = new Image(),
@@ -280,7 +280,7 @@ var drawingApp = (function () {
 			context.globalAlpha = 1; // No IE support
 
 			// Draw the outline image
-			context.drawImage( drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
+			context.drawImage(outlineImage, drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
 		},
 
 		// Adds a point to the drawing array.
@@ -433,8 +433,8 @@ mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetT
 			crayonTextureImage.onload = resourceLoaded;
 			crayonTextureImage.src = "images/crayon-texture.png";
 
-			
-			
+			outlineImage.onload = resourceLoaded;
+			outlineImage.src = "images/watermelon-duck-outline.png";
 		};
 
 	return {
