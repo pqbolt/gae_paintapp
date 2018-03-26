@@ -277,7 +277,10 @@ var drawingApp = (function () {
 				context.globalAlpha = 0.4; // No IE support
 				context.drawImage(crayonTextureImage, 0, 0, canvasWidth, canvasHeight);
 			}
+			context.globalAlpha = 1; // No IE support
 
+			// Draw the outline image
+			context.drawImage( drawingAreaX, drawingAreaY, drawingAreaWidth, drawingAreaHeight);
 		},
 
 		// Adds a point to the drawing array.
@@ -430,6 +433,8 @@ mouseY = (e.changedTouches ? e.changedTouches[0].pageY : e.pageY) - this.offsetT
 			crayonTextureImage.onload = resourceLoaded;
 			crayonTextureImage.src = "images/crayon-texture.png";
 
+			
+			
 		};
 
 	return {
